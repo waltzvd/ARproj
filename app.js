@@ -1,9 +1,9 @@
-import * as THREE from 'libs/three128/three.module.js';
-import { GLTFLoader } from 'libs/three128/jsm/GLTFLoader.js';
-import { RGBELoader } from 'libs/three128/jsm/RGBELoader.js';
-import { ARButton } from 'libs/ARButton.js';
-import { LoadingBar } from 'libs/LoadingBar.js';
-import { Player } from 'libs/Player.js';
+import * as THREE from '/libs/three128/three.module.js';
+import { GLTFLoader } from '/libs/three128/jsm/GLTFLoader.js';
+import { RGBELoader } from '/libs/three128/jsm/RGBELoader.js';
+import { ARButton } from '/libs/ARButton.js';
+import { LoadingBar } from '/libs/LoadingBar.js';
+import { Player } from '/libs/Player.js';
 
 class App{
 	constructor(){
@@ -14,7 +14,7 @@ class App{
         
         this.loadingBar = new LoadingBar();
 
-		this.assetsPath = 'assets/';
+		this.assetsPath = '/assets/';
         
 		this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
 		this.camera.position.set( 0, 1.6, 3 );
@@ -52,7 +52,7 @@ class App{
         
         const self = this;
         
-        loader.load( 'assets/hdr/venice_sunset_1k.hdr', ( texture ) => {
+        loader.load( '/assets/hdr/venice_sunset_1k.hdr', ( texture ) => {
           const envMap = pmremGenerator.fromEquirectangular( texture ).texture;
           pmremGenerator.dispose();
 
