@@ -116,7 +116,7 @@ class App{
 
 			}
 		);
-	}		
+	}		 
     
     initScene(){
         this.reticle = new THREE.Mesh(
