@@ -1,9 +1,9 @@
-import * as THREE from '/libs/three128/three.module.js';
-import { GLTFLoader } from '/libs/three128/jsm/GLTFLoader.js';
-import { RGBELoader } from '/libs/three128/jsm/RGBELoader.js';
-import { ARButton } from '/libs/ARButton.js';
-import { LoadingBar } from '/libs/LoadingBar.js';
-import { Player } from '/libs/Player.js';
+import * as THREE from 'ARproj/libs/three128/three.module.js';
+import { GLTFLoader } from 'ARproj/libs/three128/jsm/GLTFLoader.js';
+import { RGBELoader } from './libs/three128/jsm/RGBELoader.js';
+import { ARButton } from './libs/ARButton.js';
+import { LoadingBar } from './libs/LoadingBar.js';
+import { Player } from './libs/Player.js';
 
 class App{
 	constructor(){
