@@ -69,7 +69,7 @@ class App{
     	this.renderer.setSize( window.innerWidth, window.innerHeight );  
     }
     
-    loadKnight(){
+    loadGiant(){
 	    const loader = new GLTFLoader().setPath(this.assetsPath);
 		const self = this;
 		
@@ -89,16 +89,16 @@ class App{
                     animations: gltf.animations,
 					clip: gltf.animations[0],
 					app: self,
-					name: 'knight',
+					name: 'giant',
 					npc: false
 				};
 				
-				self.knight = new Player(options);
-                self.knight.object.visible = false;
+				self.giant = new Player(options);
+                self.giant.object.visible = false;
 				
-				self.knight.action = 'Dance';
+				self.giant.action = 'dance';
 				const scale = 0.005;
-				self.knight.object.scale.set(scale, scale, scale); 
+				self.giant.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
                 self.renderer.setAnimationLoop( self.render.bind(self) );//(timestamp, frame) => { self.render(timestamp, frame); } );
@@ -128,7 +128,7 @@ class App{
         this.reticle.visible = false;
         this.scene.add( this.reticle );
         
-        this.loadKnight();
+        this.loadGiant();
     }
     
     setupXR(){
@@ -142,15 +142,15 @@ class App{
         this.hitTestSource = null;
         
         function onSelect() {
-            if (self.knight===undefined) return;
+            if (self.giant===undefined) return;
             
             if (self.reticle.visible){
-                if (self.knight.object.visible){
+                if (self.giant.object.visible){
                     self.workingVec3.setFromMatrixPosition( self.reticle.matrix );
-                    self.knight.newPath(self.workingVec3);
+                    self.giant.newPath(self.workingVec3);
                 }else{
-                    self.knight.object.position.setFromMatrixPosition( self.reticle.matrix );
-                    self.knight.object.visible = true;
+                    self.giant.object.position.setFromMatrixPosition( self.reticle.matrix );
+                    self.giant.object.visible = true;
                 }
             }
         }
@@ -210,7 +210,7 @@ class App{
 
     render( timestamp, frame ) {
         const dt = this.clock.getDelta();
-        if (this.knight) this.knight.update(dt);
+        if (this.giant) this.giant.update(dt);
 
         const self = this;
         
@@ -224,8 +224,8 @@ class App{
 
         this.renderer.render( this.scene, this.camera );
         
-        /*if (this.knight.calculatedPath && this.knight.calculatedPath.length>0){
-            console.log( `path:${this.knight.calculatedPath[0].x.toFixed(2)}, ${this.knight.calculatedPath[0].y.toFixed(2)}, ${this.knight.calculatedPath[0].z.toFixed(2)} position: ${this.knight.object.position.x.toFixed(2)}, ${this.knight.object.position.y.toFixed(2)}, ${this.knight.object.position.z.toFixed(2)}`);
+        /*if (this.giant.calculatedPath && this.giant.calculatedPath.length>0){
+            console.log( `path:${this.giant.calculatedPath[0].x.toFixed(2)}, ${this.giant.calculatedPath[0].y.toFixed(2)}, ${this.giant.calculatedPath[0].z.toFixed(2)} position: ${this.giant.object.position.x.toFixed(2)}, ${this.giant.object.position.y.toFixed(2)}, ${this.giant.object.position.z.toFixed(2)}`);
         }*/
     }
 }
