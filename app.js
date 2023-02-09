@@ -76,10 +76,10 @@ class App{
 		// Load a GLTF resource
 		loader.load(
 			// resource URL
-			`giant2.glb`,
+			`office-chair.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
-				const object = gltf.scene.children[5];
+				const object = gltf.scene.children[3];
 				
 				const options = {
 					object: object,
@@ -88,20 +88,20 @@ class App{
 					loader: loader,
                     animations: gltf.animations,
 					clip: gltf.animations[0],
-					app: self,
+		 			app: self,
 					name: 'giant',
 					npc: false
 				};
 				
 				self.giant = new Player(options);
                 self.giant.object.visible = false;
-				
-				self.giant.action = 'dance';
+
+				self.giant.action = 'giant-dance';
 				const scale = 0.005;
 				self.giant.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
-                self.renderer.setAnimationLoop( self.render.bind(self) );//(timestamp, frame) => { self.render(timestamp, frame); } );
+                self.renderer.setAnimationLoop( self.render.bind(self) );    //(timestamp, frame) => { self.render(timestamp, frame); } );
 			},
 			// called while loading is progressing
 			function ( xhr ) {
@@ -112,7 +112,7 @@ class App{
 			// called when loading has errors
 			function ( error ) {
 
-				console.log( 'An error happened' );
+				console.log( 'An error happened on loading' );
 
 			}
 		);
