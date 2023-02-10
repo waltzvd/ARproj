@@ -88,20 +88,20 @@ class App{
 					loader: loader,
                     animations: gltf.animations,
 					clip: gltf.animations[0],
-		 			app: self,
+					app: self,
 					name: 'knight',
 					npc: false
 				};
 				
 				self.knight = new Player(options);
                 self.knight.object.visible = false;
-
+				
 				self.knight.action = 'Dance';
 				const scale = 0.005;
 				self.knight.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
-                self.renderer.setAnimationLoop( self.render.bind(self) );    //(timestamp, frame) => { self.render(timestamp, frame); } );
+                self.renderer.setAnimationLoop( self.render.bind(self) );//(timestamp, frame) => { self.render(timestamp, frame); } );
 			},
 			// called while loading is progressing
 			function ( xhr ) {
@@ -112,11 +112,11 @@ class App{
 			// called when loading has errors
 			function ( error ) {
 
-				console.log( 'An error happened on loading' );
+				console.log( 'An error happened' );
 
 			}
 		);
-	}		 
+	}		
     
     initScene(){
         this.reticle = new THREE.Mesh(
