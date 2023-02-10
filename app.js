@@ -224,9 +224,9 @@ class App{
 
         this.renderer.render( this.scene, this.camera );
         
-        /*if (this.knight.calculatedPath && this.knight.calculatedPath.length>0){
+        if (this.knight.calculatedPath && this.knight.calculatedPath.length>0){
             console.log( `path:${this.knight.calculatedPath[0].x.toFixed(2)}, ${this.knight.calculatedPath[0].y.toFixed(2)}, ${this.knight.calculatedPath[0].z.toFixed(2)} position: ${this.knight.object.position.x.toFixed(2)}, ${this.knight.object.position.y.toFixed(2)}, ${this.knight.object.position.z.toFixed(2)}`);
-        }*/
+        }
     }
 }
 
